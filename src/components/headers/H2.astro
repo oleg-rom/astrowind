@@ -1,0 +1,9 @@
+---
+const { class: className = '', ...rest } = Astro.props
+const base = 'text-4xl font-extrabold text-gray-800 mb-3 tracking-tight dark:text-gray-50'
+const classes = `${base} ${className}`
+---
+
+<h2 {...rest} class={classes} data-aos="fade-up" data-aos-delay="200">
+  <slot />
+</h2>

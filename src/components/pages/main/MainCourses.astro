@@ -1,0 +1,106 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+
+const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
+  <Headline
+    title="Курсы СОЗО"
+    subtitle=" Изучите инструменты внутреннего исцеления и научитесь проводить СОЗО-сессии самостоятельно — под руководством опытных наставников."
+  />
+
+  <div class="grid gap-8 sm:grid-cols-1 xl:grid-cols-2" id="main-course-list">
+    <!-- Card 1 -->
+    <a href="/courses/basic-sozo/">
+      <div class="card xl:h-full">
+        <div class="mx-4 border border-gray-200 rounded-lg shadow-lg xl:h-full">
+          <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] xl:h-full">
+            <!-- Image -->
+            <div class="md:col-span-1 h-full md:h-full">
+              <!-- Small screen image -->
+              <picture class="block sm:hidden">
+                <img
+                  src="/assets/images/courses/basic-sozo-mobile.webp"
+                  alt="Базовый курс СОЗО"
+                  class="object-cover w-full h-full rounded-t-lg"
+                />
+              </picture>
+              <!-- Desktop screen image -->
+              <picture class="hidden sm:block">
+                <img
+                  src="/assets/images/courses/basic-sozo-cover.webp"
+                  alt="Базовый курс СОЗО"
+                  class="object-cover w-full h-full rounded-l-lg"
+                />
+              </picture>
+            </div>
+
+            <!-- Text -->
+            <div class="px-4 sm:px-8 pt-6 flex flex-col xl:h-full">
+              <div class="tracking-tight text-2xl md:text-xl font-bold text-start text-gray-700">Базовый курс</div>
+              <div>
+                <p class="md:text-sm text-start mt-4 text-gray-500">
+                  <strong>Фундаментальный курс</strong>: ценности СОЗО, структура сессий и основные инструменты (Лестница Отца, 4 Двери,
+                  Стена, Приглашение Иисуса).
+                </p>
+              </div>
+              <div class="mt-8 sm:mt-auto mb-3 text-end"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="/courses/advanced-sozo/" class="card xl:h-full">
+      <div class="mx-4 bg-background-0 border border-gray-200 rounded-lg shadow-lg xl:h-full">
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] xl:h-full">
+          <!-- Image -->
+          <div class="md:col-span-1 h-full md:h-full">
+            <!-- Small screen image -->
+            <picture class="block sm:hidden">
+              <img
+                src="/assets/images/courses/advanced-sozo-mobile.webp"
+                alt="Расширенный курс СОЗО"
+                class="object-cover w-full h-full rounded-t-lg"
+              />
+            </picture>
+            <!-- Desktop image -->
+            <picture class="hidden sm:block">
+              <img
+                src="/assets/images/courses/advanced-sozo-cover.webp"
+                alt="Расширенный курс СОЗО"
+                class="object-cover w-full h-full rounded-l-lg"
+              />
+            </picture>
+          </div>
+
+          <!-- Text -->
+          <div class="px-4 sm:px-8 pt-6 flex flex-col md:col-span-1 xl:h-full">
+            <div class="tracking-tight text-2xl md:text-xl font-bold text-start text-gray-700">Расширенный курс</div>
+            <p class="mt-2 md:text-sm text-start mt-4 text-gray-500">
+              <strong>Углубленное обучение</strong>: работа с телом, травмы, знакомые духи и пророческое освобождение. Для тех, кто
+              прошёл базу.
+            </p>
+            <div class="mt-8 sm:mt-auto mb-3 text-end"></div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</WidgetWrapper>
+
+<style>
+  .course-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    .course-card {
+      grid-templage-rows: 1fr 2fr;
+    }
+  }
+</style>

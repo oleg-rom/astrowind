@@ -1,0 +1,32 @@
+---
+import { Picture } from 'astro:assets';
+import Cta from '~/components/widgets/Cta.astro';
+import learningImage from '~/assets/images/learning.jpg';
+---
+
+<div class="h-auto w-full bg-primary grid grid-rows-1 lg:grid-cols-[1fr_2fr] items-stretch">
+  <div class="h-full">
+    <Picture
+      class="w-full h-full object-cover"
+      src={learningImage}
+      formats={['avif', 'webp']}
+      widths={[320, 480, 640, 800, 1000]}
+      alt="Обучение"
+    />
+  </div>
+  <div
+    class="w-full flex flex-col items-center max-w-screen-md py-20 mb-12 lg:py-30 mx-auto px-7 text-center h-full">
+    <Cta
+      divClass="flex flex-col items-center"
+      title="Готовы начать?"
+      titleClass="text-white"
+      text="Сделайте первый шаг к свободе и внутреннему исцелению. Присоединяйтесь к обучению в Академии Bethel SOZO сегодня."
+      textClass="!dark:text-gray-50 !text-white mb-12"
+      firstButtonText="Начать обучение"
+      firstButtonHref="/courses/"
+      buttonClass="w-full md:w-auto"
+      firstButtonVariant="lightOnDark"
+    />
+    
+  </div>
+</div>

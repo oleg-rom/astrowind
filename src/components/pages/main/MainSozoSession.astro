@@ -1,0 +1,42 @@
+---
+import { Picture } from 'astro:assets';
+import sessionImage from '../../../assets/images/session2.jpg';
+import Button from '~/components/ui/Button.astro';
+import Headline from '~/components/ui/Headline.astro';
+import H2 from '~/components/headers/H2.astro';
+---
+
+<!-- Sozo Sessions Section -->
+<section class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] h-auto w-full">
+  <div class="flex flex-col items-center justify-center py-20 order-2 lg:order-1 bg-primary">
+    <div class="w-full max-w-2xl px-8 lg:px-0">
+      <H2 class="text-white text-left">Личная СОЗО-сессия</H2>
+      <p class="text-white text-lg text-left mb-12">
+        Переживите мягкое и эффективное внутреннее исцеление, восстанавливая связь с Богом в областях боли. Каждая
+        сессия уникальна и проводится в партнерстве с Духом Святым.
+      </p>
+      <Button
+        text="Записаться"
+        href="/sessions"
+        variant="secondary"
+        class="text-white hover:text-gray-700 border-white"
+      />
+    </div>
+  </div>
+
+  <div class="h-[500px] md:h-[600px] lg:h-full xl:h-[600px] order-1 lg:order-2">
+    <Picture
+      class="w-full h-full object-cover"
+      src={sessionImage}
+      formats={['avif', 'webp']}
+      widths={[320, 480, 640]}
+      alt="Крест"
+    />
+  </div>
+</section>
+
+<style>
+  h2 {
+    /* color: white; */
+  }
+</style>

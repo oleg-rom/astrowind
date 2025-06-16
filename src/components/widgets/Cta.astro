@@ -1,0 +1,51 @@
+---
+import Button from "../ui/Button.astro";
+const {
+  sectionClass = '',
+  divClass = '',
+  title = '',
+  titleClass = '',
+  text = '',
+  textClass = '',
+  firstButtonHref,
+  firstButtonText,
+  firstButtonVariant = '',
+  secondButtonHref,
+  secondButtonText,
+  secondButtonVariant = '',
+} = Astro.props
+---
+
+<section class={`${sectionClass}`}>
+  <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+    <div class={`max-w-screen-md ${divClass ?? ''}`}>
+      <h2
+        class={`mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white ${titleClass ?? ''}`}
+        data-aos="fade-up"
+        data-aos-delay="200">
+        {title}
+      </h2>
+
+      <p
+        class={`mb-8 font-light text-gray-600 sm:text-xl dark:text-gray-400 ${textClass ?? ''}`}
+        data-aos="fade-up"
+        data-aos-delay="300">
+        {text}
+      </p>
+
+      <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+        <Button
+          variant="secondary"
+          text={firstButtonText}
+          href={firstButtonHref}
+          class="text-white border-white hover:text-gray-800"
+        />
+        {
+          secondButtonText && secondButtonHref && (
+            <Button variant={secondButtonVariant} buttonText={secondButtonText} href={secondButtonHref} />
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>
